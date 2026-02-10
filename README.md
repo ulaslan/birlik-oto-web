@@ -17,7 +17,7 @@ A high-performance, modern corporate website built for **Birlik Oto**, a premium
 * **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 * **Animations:** [Framer Motion](https://www.framer.com/motion/)
 * **Icons:** [Lucide React](https://lucide.dev/)
-* **Deployment:** Vercel (Ready)
+* **Deployment:** Vercel (Compatible)
 
 ## 🚀 Getting Started
 
