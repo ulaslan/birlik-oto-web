@@ -15,7 +15,6 @@ export default function Hero() {
     mouseY.set(clientY - top);
   }
 
-  // Maske ayarı: 300px genişliğinde bir alan açar
   const maskImage = useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, transparent 0%, black 100%)`;
 
   const scrollToSection = (id: string) => {
@@ -27,23 +26,24 @@ export default function Hero() {
 
   return (
     <section
+      // h-screen: Tam ekran. -mt falan YOK.
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-background"
       onMouseMove={handleMouseMove}
     >
-      {/* 1. KATMAN (EN ALT): TEMİZ ARABA */}
+      {/* 1. KATMAN: TEMİZ ARABA */}
       <div className="absolute inset-0 z-0">
         <Image 
           src="/audi-temiz.png" 
           alt="Birlik Oto Clean Service"
           fill
           className="object-cover"
-          priority // Sayfa açılır açılmaz yükle
-          quality={100} // Maksimum kalite
-          unoptimized={true} // 🔥 KRİTİK AYAR: Next.js sıkıştırmasını kapatır, orijinal dosyayı kullanır.
+          priority 
+          quality={100} 
+          unoptimized={true} 
         />
       </div>
 
-      {/* 2. KATMAN (ÜST): PİS ARABA (Sadece Masaüstü) */}
+      {/* 2. KATMAN: PİS ARABA */}
       <motion.div 
         className="absolute inset-0 z-10 hidden md:block"
         style={{ 
@@ -58,15 +58,16 @@ export default function Hero() {
           className="object-cover"
           priority
           quality={100} 
-          unoptimized={true} // 🔥 KRİTİK AYAR: Sıkıştırmayı iptal et
+          unoptimized={true} 
         />
       </motion.div>
 
-      {/* 3. KATMAN: GÖLGELENDİRME VE EFEKTLER (Yazı okunurluğu için) */}
+      {/* 3. KATMAN: GÖLGELENDİRME */}
       <div className="absolute inset-0 z-20 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none"></div>
       <div className="absolute inset-0 z-20 bg-gradient-to-r from-background/70 via-transparent to-background/70 pointer-events-none"></div>
 
       {/* 4. KATMAN: İÇERİK */}
+      {/* 🔥 pt-48: Yazıları aşağı itiyoruz. (Şerit + Navbar payı) */}
       <div className="container mx-auto px-4 relative z-30 pt-20">
         <div className="flex flex-col items-center text-center">
           

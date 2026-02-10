@@ -9,3 +9,14 @@ body {
   background-color: var(--background);
   color: var(--foreground);
 }
+
+/* 🔥 KRİTİK AYAR 🔥 */
+/* Navbar'ı zorla 'relative' yapıyoruz. */
+/* Böylece Layout'taki kutunun içinde, Şeridin hemen altında uslu uslu duracak. */
+nav {
+  position: relative !important; /* Fixed veya Absolute olmasını engeller */
+  top: auto !important;
+  width: 100% !important;
+  z-index: 50;
+  background-color: transparent !important; /* Arkadaki Hero görünsün diye */
+}
